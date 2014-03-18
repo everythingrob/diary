@@ -8,14 +8,13 @@
 
 		<title>diary</title>
 
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="../style.css">
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		
-		<script src="diary.js"></script>
+		<script src="../diary.js"></script>
 	
 		<!-- Start function to display entries -->
-		<script>window.addEventListener('load', getJSON);</script>
 
 	</head>
 
@@ -44,9 +43,17 @@
 			
 				<h1><a href="/diary">diary</a></h1>
 
-				<div class='entries-body'>
+				<div class='add-body'>
 					
-					<!-- json diary entries here -->
+					<h2>new entry</h2>
+					
+					<div class='error'>Entry was empty!</div>
+					<div id='success' class='success'>Entry was added successfully</div>
+
+					<form id='add-entry'>
+						<textarea autofocus placeholder='Let your thoughts free'></textarea>
+						<button type='submit'>add new entry</button>
+					</form>
 
 				</div> 
 			

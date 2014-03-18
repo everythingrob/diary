@@ -135,6 +135,13 @@ a.nav-highlight h1 {
 	font-weight: lighter;
 }
 
+.error2 {
+	color: #FF3838;
+	padding: 1em 0;
+	display: none;
+	font-weight: lighter;
+}
+
 ::-webkit-input-placeholder { /* WebKit browsers */
     color:    #282E30;
 }
@@ -148,17 +155,43 @@ a.nav-highlight h1 {
     color:    #282E30;
 }
 
-#add-entry {
+#add-entry, #edit-entry {
 	text-align: center;
+}
+
+select { /* Remove browser crap*/
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+}
+
+select.edit {
+	padding: .75em 1.5em;
+	font-size: 14pt;
+	background-color: #282E30;
+	color: white;
+	margin-top: 1em; margin-bottom: 1em;
+}
+
+#edit-entry {
+	display: none;
+}
+
+#edit-entry textarea {
+	cursor: not-allowed;
 }
 
 button {
 	border: 0;
 	padding: 1em;
+	margin-bottom: 2em;
 	background-color: #282E30;
 	color: white;
 	font-size: 13pt;
 	border-radius: 4px;
+	text-align: center;
 }
 
 button:active {

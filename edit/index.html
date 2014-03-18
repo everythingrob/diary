@@ -1,0 +1,76 @@
+<!doctype html>
+
+<html lang="en">
+
+	<head>
+
+		<meta charset="UTF-8">
+
+		<title>diary</title>
+
+		<link rel="stylesheet" href="../style.css">
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		
+		<script src="../diary.js"></script>
+	
+		<!-- Start function to display entries -->
+		<script>$(document).ready(getEntryList);</script>
+
+
+	</head>
+
+	<body>
+
+		<span class='sidebar'>
+			
+			<a href="/diary" class='entries-nav'><h1>entries</h1></a><p></p>
+			<a href='/diary/new' class='new-nav'><h1>new</h1></a><p></p>
+			<a href="/diary/edit" class='edit-nav'><h1>edit</h1></a><p></p>
+			<a href="https://github.com/everythingrob/diary"><h1>about</h1></a>
+			<!-- <p></p><br>
+			<div class='entries-select'>
+				<div>Posts in the last</div>
+				<div>Week</div>
+				<div>Month</div>
+				<div>Year</div>
+			</div> -->
+			
+
+		</span>
+
+		<div class='wrapper'>
+
+			<div class='push-wrapper'>
+			
+				<h1><a href="/diary">diary</a></h1>
+
+				<div class='add-body'>
+					
+					<h2>edit entry</h2>
+						<select class='edit'>
+							<option value="">Choose an entry</option>
+
+						</select>
+					<div class='error'>Entry was empty!</div>
+					<div class='error2'>Please select a entry!</div>
+					<div id='success' class='success'>Entry was added successfully</div>
+
+					<form id='edit-entry'>
+						<textarea autofocus placeholder='Let your thoughts free'></textarea>
+						<button type='submit'>edit entry</button>
+					</form>
+
+				</div> 
+			
+			</div>
+			
+			<div class='push'></div>
+			
+		</div>
+
+		<footer><a href='http://everythingrob.co.uk'>Made by Rob Calcroft</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href='https://github.com/everythingrob/diary'>Diary - a JSON based diary system</a></footer>
+
+	</body>
+
+</html>

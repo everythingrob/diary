@@ -1,0 +1,84 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic);
+
+html, body {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 100;
+	height: 100%;
+	color: #282E30;
+}
+
+html { width: 100%; }
+
+body { 
+	width: 60%;
+	margin: 0 auto;
+}
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -2em;
+}
+
+.sub-wrapper {
+	padding-top: 10em;
+}
+
+h1 {
+	font-size: 100pt;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.entries-body {
+	padding-top: 3em;
+}
+
+.entries-body article {
+	font-size: 17pt;
+	font-weight: bold;
+	padding-left: 6px;
+	padding-bottom: 2em;
+}
+
+.entries-body section {
+	font-weight: lighter;
+	font-size: 12pt;
+	padding: 1em;
+}
+
+footer, .push { height: 2em; }
+
+footer {
+	text-align: center;
+	font-weight: lighter;
+	color: #C7C7C7;
+}
+
+footer:hover {
+	color: #737475;
+}
+
+footer a:hover {
+	color: #282E30;
+}
+
+/* MOBILE */
+
+@media screen and (max-width: 1000px) {
+
+	body {
+		width: 95%;
+		margin-top: 5em;
+	}
+	
+}

@@ -179,10 +179,6 @@ select.edit {
 	display: none;
 }
 
-#edit-entry textarea {
-	cursor: not-allowed;
-}
-
 button {
 	border: 0;
 	padding: 1em;

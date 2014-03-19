@@ -41,7 +41,7 @@
 		});
 	}
 
-var currentEntry;
+var currentEntry, currentEntryContent;
 
 	function getEdit() {
 		$('#edit-entry').show('quick');
@@ -49,6 +49,7 @@ var currentEntry;
 			$('#edit-entry textarea').html(function() {
 				var entry = document.querySelector('select').value;
 				currentEntry = entry;
+				currentEntryContent = entries[entry].content;
 				return entries[entry].content;
 			})
 		})
@@ -80,16 +81,18 @@ var currentEntry;
 	function editEntry(event) {
 		event.preventDefault();
 		var entry = document.querySelector('#edit-entry textarea').value;
-		if($('#edit-entry textarea').readOnly == true) {
+		if(currentEntryContent == entry) {
 			$('.error2').show('quick');
+			$('#edit-entry textarea').addClass('box-error');
 			setTimeout(function() {
 				$('.error2').hide('quick');
+				$('#edit-entry textarea').removeClass('box-error');
 			},1300);
 			return false;
 		}
 		if(entry == "") {
 			$('.error').show('quick');
-			$('#add-entry textarea').addClass('box-error');
+			$('#edit-entry textarea').addClass('box-error');
 			return false;
 		} 
 		var payload = {

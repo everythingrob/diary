@@ -17,6 +17,14 @@ body {
 
 }
 
+.top-bar {
+	float: left;
+	width: 1em;
+	height: 100%;
+	background-color: #282E20;
+	position: fixed;
+}
+
 .underline {
 	text-decoration: underline;
 }

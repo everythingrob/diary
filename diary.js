@@ -77,8 +77,11 @@ var currentEntry, currentEntryContent;
 			url : '../writeToJSON.php',
 			data : { entry : currentEntry }
 		})
-		.done(function(data_bonk) {
-			alert(data_bonk);
+		.done(function(data_bonk) {;
+			$('.delete-success').show('quick');
+			setTimeout(function() {
+				$('.delete-success').hide('quick');
+			},1000);
 		})
 	}
 

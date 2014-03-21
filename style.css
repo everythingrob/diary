@@ -133,7 +133,7 @@ button.delete-entry {
 	-webkit-box-shadow: 0 0 5px 1px #1CB85A;
 	box-shadow: 0 0 5px 1px #1CB85A;
 }
-.success {
+.success, .delete-success {
 	padding: 1em 0;
 	display: none;
 	font-weight: lighter;

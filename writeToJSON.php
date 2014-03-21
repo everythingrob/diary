@@ -81,7 +81,7 @@
 
 		//echo json_encode($json);
 
-		if(json_encode($json) == "{}") {
+		if(json_encode($json) == "{}" || json_decode($json) == "null") {
 			unlink($file);
 			exit;
 		}

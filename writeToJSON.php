@@ -6,6 +6,11 @@
 	if(isset($_REQUEST ['edit'])) {
 		editThing();
 	}
+	if(isset($_REQUEST ['entry'])) {
+		deleteThing();
+	} else {
+		exit;
+	}
 
 	function newThing() {
 
@@ -26,8 +31,13 @@
 		$y = date('y');
 		$date = $d . '/' . $m . '/' . $y;
 
-		$json[$size] = array("date" => $date, "content" => $entry);
+		$new_entry = array("date" => $date, "content" => $entry);
 
+		if($json == null || $json == "") {
+			$json[$size] = $new_entry;
+		} else {
+			array_push($json, $new_entry);
+		}
 		file_put_contents($file, json_encode($json));
 
 	}
@@ -51,6 +61,34 @@
 
 
 		file_put_contents($file, json_encode($json));
+	}
+
+	function deleteThing() {
+
+		if($_REQUEST ['entry'] == "") {
+			exit;
+		}
+
+		$entry = $_REQUEST ['entry'];
+
+		$file = 'entries.json';
+
+		$json = json_decode(file_get_contents($file));
+
+		if (! empty($json->{$entry})) {
+  			unset($json->{$entry});
+		}
+
+		//echo json_encode($json);
+
+		if(json_encode($json) == "{}") {
+			unlink($file);
+			exit;
+		}
+
+		file_put_contents($file, json_encode($json));
+
+
 	}
 
 ?>

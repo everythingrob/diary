@@ -3,35 +3,43 @@
 		$('#edit-entry').bind('submit', editEntry);
 		$('select.edit').bind('change', getEdit);
 		pageHighlight(); 
-		//$('#edit-entry textarea').readOnly = true;
-		$('#add-entry textarea').click(function() {
+		$('#add-entry textarea, #edit-entry textarea').click(function() {
 			$('.error').hide('quick');
-			$('#add-entry textarea').removeClass('box-error');
+			$('#add-entry textarea, #edit-entry textarea').removeClass('box-error');
 
 		})
 	})
 
-
 	function getEntryList() {
 		$.getJSON('../entries.json', function( entries ) {
-			var i = countObject(entries), entry;
-			while(entry = entries[i]) {
-				$('select').append(function() {
-					i--;
-					return "<option value='"+(i+1)+"'>"+entry.date+"</option>";
-				})
-			}
-		})
+			var entry, buffer = []
+			  	for (entry in entries) {
+			  		buffer.push(entries[entry]);
+			  	}
+				//for(;buffer.length;) {
+				  	for(var key in entries) {
+				  		$('select').append(function() {
+				  			var x = buffer.pop();
+				  			console.log(x);
+				  			return "<option value='"+(key)+"'>"+x.date+"</option>";
+				  		})	
+				  	}
+				//}
+		})		
 	}
 
 	function getJSON() {		
 		$.getJSON( "/diary/entries.json", function( entries ) {
-				var i = countObject(entries), entry;
-			  	while(entry = entries[i]) {
+				var entry, buffer = [];
+			  	for (entry in entries) {
+			  		buffer.push(entries[entry]);
+			  	}
+			  	for(; buffer.length > 0;) {
 			  		$('.entries-body').append(function() {
-			  			i--;
-			  			return makeEntry(entry);
-			  		})		
+			  			var x = buffer.pop();
+			  			console.log(x);
+			  			return makeEntry(x);
+			  		})	
 			  	}
 
 		})
@@ -52,6 +60,25 @@ var currentEntry, currentEntryContent;
 				currentEntryContent = entries[entry].content;
 				return entries[entry].content;
 			})
+		})
+	}
+
+	function deleteEntry(event) {
+		event.preventDefault();
+		if(currentEntry == "") {
+			$('.error3').show('quick');
+			setTimeout(function() {
+				$('.error3').hide('quick');
+			}, 1200);
+			return false;
+		}
+		$.ajax({
+			type : 'POST',
+			url : '../writeToJSON.php',
+			data : { entry : currentEntry }
+		})
+		.done(function(data_bonk) {
+			alert(data_bonk);
 		})
 	}
 

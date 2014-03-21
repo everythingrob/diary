@@ -112,6 +112,10 @@ a.nav-highlight h1 {
 	outline: none;
 }
 
+button.delete-entry {
+	background-color: #FF3838;
+}
+
 .box-error {
 	-webkit-box-shadow: 0 0 5px 1px #FF3838;
 	box-shadow: 0 0 5px 1px #FF3838;
@@ -128,14 +132,7 @@ a.nav-highlight h1 {
 	color: #1CB85A !important;
 }
 
-.error {
-	color: #FF3838;
-	padding: 1em 0;
-	display: none;
-	font-weight: lighter;
-}
-
-.error2 {
+.error, .error2, .error3 {
 	color: #FF3838;
 	padding: 1em 0;
 	display: none;

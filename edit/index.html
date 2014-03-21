@@ -54,11 +54,12 @@
 						</select>
 					<div class='error'>Entry was empty!</div>
 					<div class='error2'>No change was made</div>
-					<div id='success' class='success'>Entry was added successfully</div>
+					<div class='error3'>No entry was selected</div>
+					<div id='success' class='success'>Entry was edited successfully</div>
 
 					<form id='edit-entry'>
 						<textarea autofocus placeholder='Let your thoughts free'></textarea>
-						<button type='submit'>edit entry</button>
+						<button type='submit'>edit entry</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class='delete-entry' onclick='deleteEntry(event)'>delete entry</button>
 					</form>
 
 				</div> 

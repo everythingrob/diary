@@ -16,7 +16,6 @@
 			  	for (entry in entries) {
 			  		buffer.push(entries[entry]);
 			  	}
-				//for(;buffer.length;) {
 				  	for(var key in entries) {
 				  		$('select').append(function() {
 				  			var x = buffer.pop();
@@ -24,7 +23,6 @@
 				  			return "<option value='"+(key)+"'>"+x.date+"</option>";
 				  		})	
 				  	}
-				//}
 		})		
 	}
 
@@ -78,10 +76,15 @@ var currentEntry, currentEntryContent;
 			data : { entry : currentEntry }
 		})
 		.done(function(data_bonk) {;
+			$('#edit-entry textarea').val('');
+			$('select.edit option[value="'+currentEntry+'"]').remove();
+			$('select.edit').prop('selectedIndex',0);
 			$('.delete-success').show('quick');
+			$('#edit-entry textarea').addClass('box-success') 
 			setTimeout(function() {
-				$('.delete-success').hide('quick');
-			},1000);
+				$('.delete-success').hide('slow');
+				$('#edit-entry textarea').removeClass('box-success') 
+			},1500);
 		})
 	}
 

@@ -6,6 +6,7 @@
 }
 
 html, body {
+	font-family: arial, sans-serif;
 	font-weight: bold;
 	height: 100%;
 	color: #282E30;
@@ -162,6 +163,10 @@ button.delete-entry {
 
 #add-entry, #edit-entry {
 	text-align: center;
+}
+
+textarea {
+	font-family: arial;
 }
 
 select { /* Remove browser crap*/

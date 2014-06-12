@@ -27,7 +27,7 @@
 	}
 
 	function getJSON() {		
-		$.getJSON( "/diary/entries.json", function( entries ) {
+		$.getJSON( "entries.json", function( entries ) {
 				var entry, buffer = [];
 			  	for (entry in entries) {
 			  		buffer.push(entries[entry]);
@@ -42,7 +42,7 @@
 
 		})
 		.fail(function(){
-			var error = "No entries were found, <a href='/diary/new/' class='underline'>click here</a> to add one"
+			var error = "No entries were found, <a href='new' class='underline'>click here</a> to add one"
 			$('.entries-body').html(error);
 		});
 	}
